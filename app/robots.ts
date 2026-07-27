@@ -1,0 +1,1 @@
+import type { MetadataRoute } from "next"; export default function robots():MetadataRoute.Robots{return {rules:{userAgent:"*",allow:"/",disallow:["/tr/admin","/en/admin","/es/admin","/api/"]},sitemap:`${process.env.NEXT_PUBLIC_SITE_URL||"https://hkotradehub.com"}/sitemap.xml`}}

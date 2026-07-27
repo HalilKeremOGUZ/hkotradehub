@@ -1,0 +1,1 @@
+export function PageHero({eyebrow,title,text}:{eyebrow:string,title:string,text:string}){return <section className="overflow-hidden bg-sand"><div className="container-shell py-20 lg:py-28"><p className="eyebrow">{eyebrow}</p><h1 className="heading max-w-4xl">{title}</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-ink/65">{text}</p></div></section>}

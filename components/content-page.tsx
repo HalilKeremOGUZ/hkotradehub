@@ -1,0 +1,1 @@
+import { PageHero } from "./page-hero"; export function ContentPage({eyebrow,title,text,children}:{eyebrow:string,title:string,text:string,children:React.ReactNode}){return <><PageHero eyebrow={eyebrow} title={title} text={text}/><section className="section"><div className="container-shell">{children}</div></section></>}

@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{color-scheme:light} html{scroll-behavior:smooth} body{background:#fff;color:#081427} ::selection{background:#D28A45;color:white}
+.container-shell{@apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10}.section{@apply py-20 lg:py-28}.eyebrow{@apply text-xs font-semibold uppercase tracking-[.24em] text-copper}.heading{@apply mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl}.btn-primary{@apply inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-ocean}.btn-secondary{@apply inline-flex items-center justify-center rounded-full border border-ink/15 bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:border-copper hover:text-copper}.card{@apply rounded-3xl border border-ink/10 bg-white shadow-soft}.input{@apply w-full rounded-2xl border border-ink/15 bg-white px-4 py-3 outline-none transition focus:border-copper focus:ring-2 focus:ring-copper/20}
