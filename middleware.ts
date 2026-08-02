@@ -9,7 +9,9 @@ export async function middleware(req: NextRequest) {
   const hasLocale = locales.some((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
 
   if (!hasLocale && !pathname.startsWith("/api") && !pathname.startsWith("/_next") && !pathname.includes(".")) {
-    return NextResponse.redirect(new URL(`/tr${pathname}`, req.url));
+    const savedLocale = req.cookies.get("hko_language")?.value;
+    const locale = savedLocale && locales.includes(savedLocale) ? savedLocale : "tr";
+    return NextResponse.redirect(new URL(`/${locale}${pathname}`, req.url));
   }
 
   const adminMatch = pathname.match(/^\/(tr|en|es)\/admin/);
