@@ -6,21 +6,21 @@ import { isLocale } from "@/lib/i18n";
 
 const copy = {
   tr: {
-    eyebrow: "İçgörüler",
+    eyebrow: "Blog",
     title: "İki pazar için ticaret istihbaratı",
     text: "Tedarik, ihracat, mevzuata uyum ve lojistik konularında pratik rehberlik.",
     summary: "Türkiye ve Şili arasında ticaret yapan şirketler için uygulanabilir içgörüler.",
     readArticle: "Makaleyi oku",
   },
   en: {
-    eyebrow: "Insights",
+    eyebrow: "Blog",
     title: "Trade intelligence for two markets",
     text: "Practical guidance on sourcing, exporting, compliance and logistics.",
     summary: "Actionable insights for companies trading across Türkiye and Chile.",
     readArticle: "Read article",
   },
   es: {
-    eyebrow: "Perspectivas",
+    eyebrow: "Blog",
     title: "Inteligencia comercial para dos mercados",
     text: "Orientación práctica sobre abastecimiento, exportación, cumplimiento normativo y logística.",
     summary: "Información práctica para empresas que comercian entre Türkiye y Chile.",
