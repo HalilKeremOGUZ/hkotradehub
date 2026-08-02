@@ -21,7 +21,7 @@ export function Header({locale}:{locale:Locale}){
         <Lang locale={locale}/>
         <Link href={`/${locale}/quote`} className="btn-primary !px-5 !py-2.5">{d.nav.quote}</Link>
       </nav>
-      <button className="grid h-11 w-11 place-items-center rounded-full border border-ink/10 xl:hidden" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label="Menu">{open?<X size={20}/>:<Menu size={20}/>}</button>
+      <button className="grid h-11 w-11 place-items-center rounded-full border border-ink/10 xl:hidden" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label={locale==="tr"?"Menü":locale==="es"?"Menú":"Menu"}>{open?<X size={20}/>:<Menu size={20}/>}</button>
     </div>
     {open&&<div className="border-t border-ink/8 bg-white px-5 pb-6 xl:hidden">
       <div className="container-shell !px-0 pt-3">{items.map(([p,l])=><Link onClick={()=>setOpen(false)} key={p} href={`/${locale}/${p}`} className="block border-b border-ink/5 py-3.5 text-sm font-medium">{l}</Link>)}<div className="mt-5 flex items-center justify-between"><Lang locale={locale}/><Link onClick={()=>setOpen(false)} href={`/${locale}/quote`} className="btn-primary">{d.nav.quote}</Link></div></div>
@@ -30,7 +30,8 @@ export function Header({locale}:{locale:Locale}){
 }
 function Lang({locale}:{locale:Locale}){
   const pathname = usePathname();
-  return <div className="relative flex items-center gap-1 rounded-full border border-ink/10 bg-white p-1" aria-label="Language selector"><span className="sr-only">Language</span>{(["tr","en","es"] as const).map(l=>{
+  const selector=locale==="tr"?"Dil seçici":locale==="es"?"Selector de idioma":"Language selector";
+  return <div className="relative flex items-center gap-1 rounded-full border border-ink/10 bg-white p-1" aria-label={selector}><span className="sr-only">{selector}</span>{(["tr","en","es"] as const).map(l=>{
     const href = pathname.replace(/^\/(tr|en|es)(?=\/|$)/, `/${l}`);
     const label = l === "tr" ? "Türkçe" : l === "en" ? "English" : "Español";
     return <Link onClick={()=>saveLanguagePreference(l)} aria-label={label} aria-current={l===locale?"page":undefined} className={`rounded-full px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper ${l===locale?"bg-ink text-white":"text-ink/45 hover:text-ink"}`} href={href} key={l}>{l}</Link>;
