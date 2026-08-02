@@ -3,10 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, BadgeCheck, Boxes, Building2, CheckCircle2, CircleDollarSign, ClipboardCheck, Factory, Globe2, Handshake, Leaf, PackageSearch, Search, ShieldCheck, Ship, Truck, Wrench } from "lucide-react";
 import { dictionaries, isLocale, type Locale } from "@/lib/i18n";
-import { products } from "@/lib/data";
-import { ProductCard } from "@/components/product-card";
 import { Reveal } from "@/components/motion-reveal";
 import { TradeRoute } from "@/components/trade-route";
+import { OpportunityExplorer } from "@/components/opportunity-explorer";
 
 const industryCopy={
  tr:["Endüstriyel Makine","Ticari Araçlar","Madencilik","Tarım & Gıda","Yapı Malzemeleri","Lojistik Çözümleri"],
@@ -71,7 +70,7 @@ export default async function Home({params}:{params:Promise<{locale:string}>}){
 
   <section className="section bg-white"><div className="container-shell grid items-center gap-12 lg:grid-cols-[.75fr_1.25fr]"><Reveal><p className="eyebrow">{d.home.routeEyebrow}</p><h2 className="heading">{d.home.routeTitle}</h2><p className="lead">{d.home.routeText}</p><div className="mt-8 space-y-3 text-sm text-ink/58"><p className="flex items-center gap-3"><CheckCircle2 className="text-aqua" size={19}/>Market-specific business intelligence</p><p className="flex items-center gap-3"><CheckCircle2 className="text-aqua" size={19}/>Cross-border sourcing and sales support</p><p className="flex items-center gap-3"><CheckCircle2 className="text-aqua" size={19}/>Scalable global network architecture</p></div></Reveal><Reveal><TradeRoute locale={locale}/></Reveal></div></section>
 
-  <section className="section bg-sand"><div className="container-shell"><Reveal><p className="eyebrow">{d.home.featuredEyebrow}</p><div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between"><div><h2 className="heading">{d.home.featuredTitle}</h2><p className="lead">{d.home.featuredText}</p></div><Link href={`/${locale}/products`} className="btn-secondary gap-2 self-start lg:self-auto">{d.hero.primary}<ArrowRight size={17}/></Link></div></Reveal><div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">{products.slice(0,6).map(p=><Reveal key={p.slug}><ProductCard product={p} locale={locale}/></Reveal>)}</div></div></section>
+  <section className="section bg-sand"><div className="container-shell"><Reveal><p className="eyebrow">{d.home.featuredEyebrow}</p><div className="grid gap-5 lg:grid-cols-[1fr_.65fr] lg:items-end"><div><h2 className="heading">{d.home.featuredTitle}</h2></div><p className="lead lg:mt-0">{d.home.featuredText}</p></div></Reveal><OpportunityExplorer locale={locale}/></div></section>
 
   <section className="section bg-white"><div className="container-shell"><Reveal className="text-center"><p className="eyebrow">{d.home.processEyebrow}</p><h2 className="heading mx-auto">{d.home.processTitle}</h2><p className="lead mx-auto">{d.home.processText}</p></Reveal><div className="relative mt-14 grid gap-5 lg:grid-cols-3"><div className="absolute left-[16%] right-[16%] top-9 hidden border-t border-dashed border-ocean/25 lg:block"/>{process.map(([num,title,text],i)=><Reveal key={num}><article className="relative rounded-[1.75rem] border border-ink/8 bg-white p-7 text-center shadow-[0_18px_55px_rgba(8,20,39,.05)]"><span className="relative z-10 mx-auto grid h-[72px] w-[72px] place-items-center rounded-full border-[7px] border-white bg-ocean text-lg font-bold text-white shadow-lg shadow-ocean/20">{num}</span><h3 className="mt-6 text-xl font-semibold">{title}</h3><p className="mt-3 text-sm leading-7 text-ink/55">{text}</p></article></Reveal>)}</div></div></section>
 
