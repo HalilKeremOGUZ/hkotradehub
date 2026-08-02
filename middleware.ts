@@ -25,7 +25,10 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  return NextResponse.next();
+  const requestHeaders = new Headers(req.headers);
+  const locale = pathname.match(/^\/(tr|en|es)(?:\/|$)/)?.[1] || "tr";
+  requestHeaders.set("x-hko-locale", locale);
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export const config = { matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"] };
