@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, Globe2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Locale } from "@/lib/i18n";
 
@@ -19,12 +19,20 @@ const languages: Array<{ code: Locale; name: string; region: string; symbol: str
   { code: "en", name: "English", region: "International", symbol: "EN" },
   { code: "es", name: "Español", region: "Chile", symbol: "ES" },
 ];
+const copy={
+ tr:{badge:"Küresel B2B Ticaret",title:"HKO Trade Hub’a Hoş Geldiniz",text:"Türkiye ve Şili arasındaki güvenilir ticaret fırsatlarını keşfetmek için dilinizi seçin.",choose:"Dilinizi seçin",continue:"Devam et",saved:"Tercihiniz bu cihazda kaydedilecektir."},
+ en:{badge:"Global B2B Trade",title:"Welcome to HKO Trade Hub",text:"Choose your language to explore trusted trade opportunities between Türkiye and Chile.",choose:"Choose your language",continue:"Continue",saved:"Your preference will be saved on this device."},
+ es:{badge:"Comercio B2B Global",title:"Bienvenido a HKO Trade Hub",text:"Elija su idioma para explorar oportunidades comerciales confiables entre Türkiye y Chile.",choose:"Elija su idioma",continue:"Continuar",saved:"Su preferencia se guardará en este dispositivo."}
+} as const;
 
 export function LanguageWelcome() {
   const router = useRouter();
+  const pathname = usePathname();
   const reducedMotion = useReducedMotion();
   const [visible, setVisible] = useState(false);
-  const [selected, setSelected] = useState<Locale>("en");
+  const pathLocale=pathname.match(/^\/(tr|en|es)(?:\/|$)/)?.[1] as Locale|undefined;
+  const [selected, setSelected] = useState<Locale>(pathLocale||"en");
+  const t=copy[selected];
 
   useEffect(() => {
     const saved = window.localStorage.getItem(LANGUAGE_PREFERENCE_KEY);
@@ -65,13 +73,13 @@ export function LanguageWelcome() {
           </div>
 
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.2em] text-aqua backdrop-blur"><Globe2 className="h-4 w-4" aria-hidden="true" /> Global B2B Trade</div>
-            <h1 id="language-welcome-title" className="text-3xl font-semibold tracking-tight sm:text-5xl">Welcome to HKO Trade Hub</h1>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-white/60 sm:text-base">Choose your language to explore trusted trade opportunities between Türkiye and Chile.</p>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.2em] text-aqua backdrop-blur"><Globe2 className="h-4 w-4" aria-hidden="true" /> {t.badge}</div>
+            <h1 id="language-welcome-title" className="text-3xl font-semibold tracking-tight sm:text-5xl">{t.title}</h1>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-white/60 sm:text-base">{t.text}</p>
           </div>
 
-          <fieldset className="mx-auto mt-8 grid max-w-3xl gap-3 sm:mt-10 sm:grid-cols-3" aria-label="Choose your language">
-            <legend className="sr-only">Choose your language</legend>
+          <fieldset className="mx-auto mt-8 grid max-w-3xl gap-3 sm:mt-10 sm:grid-cols-3" aria-label={t.choose}>
+            <legend className="sr-only">{t.choose}</legend>
             {languages.map((language, index) => {
               const active = selected === language.code;
               return <motion.button
@@ -87,8 +95,8 @@ export function LanguageWelcome() {
           </fieldset>
 
           <div className="mt-7 text-center">
-            <button type="button" onClick={continueToSite} className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-aqua px-8 py-3 text-sm font-semibold text-ink shadow-[0_14px_40px_rgba(81,214,203,.22)] transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Continue <ArrowRight className="h-4 w-4" aria-hidden="true" /></button>
-            <p className="mt-5 text-xs text-white/35">Your preference will be saved on this device.</p>
+            <button type="button" onClick={continueToSite} className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-aqua px-8 py-3 text-sm font-semibold text-ink shadow-[0_14px_40px_rgba(81,214,203,.22)] transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">{t.continue} <ArrowRight className="h-4 w-4" aria-hidden="true" /></button>
+            <p className="mt-5 text-xs text-white/35">{t.saved}</p>
           </div>
         </motion.div>
       </div>
