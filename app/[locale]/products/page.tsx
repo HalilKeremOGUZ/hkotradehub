@@ -6,5 +6,11 @@ import {isLocale} from "@/lib/i18n";
 import {notFound} from "next/navigation";
 
 const copy={tr:{eyebrow:"Pazar Yeri",title:"Seçilmiş ticaret fırsatları",text:"Türkiye ve Şili'deki doğrulanmış iş ağlarından sağlanan ürün kategorilerini keşfedin."},en:{eyebrow:"Marketplace",title:"Selected trade opportunities",text:"Explore product categories sourced from verified business networks in Türkiye and Chile."},es:{eyebrow:"Mercado",title:"Oportunidades comerciales seleccionadas",text:"Explore categorías de productos provenientes de redes empresariales verificadas en Türkiye y Chile."}} as const;
-const sparePartSlugs=["automotive-spare-parts","truck-spare-parts","heavy-machinery-spare-parts"];
-export default async function Page({params}:{params:Promise<{locale:string}>}){const {locale}=await params;if(!isLocale(locale))notFound();const t=copy[locale];const otherProducts=products.filter(p=>!sparePartSlugs.includes(p.slug));return <><PageHero eyebrow={t.eyebrow} title={t.title} text={t.text}/><section className="section"><div className="container-shell"><div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">{otherProducts.map(p=><ProductCard product={p} locale={locale} key={p.slug}/>)}</div><SparePartsHub locale={locale}/></div></section></>;}
+
+export default async function Page({params}:{params:Promise<{locale:string}>}){
+  const {locale}=await params;
+  if(!isLocale(locale))notFound();
+  const t=copy[locale];
+  const regularProducts=products.filter(p=>!p.slug.includes("spare-parts"));
+  return <><PageHero eyebrow={t.eyebrow} title={t.title} text={t.text}/><section className="section"><div className="container-shell grid gap-7 md:grid-cols-2 lg:grid-cols-3">{regularProducts.map(p=><ProductCard product={p} locale={locale} key={p.slug}/>)}<SparePartsHub locale={locale}/></div></section></>;
+}
