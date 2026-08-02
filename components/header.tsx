@@ -17,7 +17,7 @@ export function Header({locale}:{locale:Locale}){
     <div className="container-shell flex h-[184px] items-center justify-between">
       <Logo locale={locale}/>
       <nav className="hidden items-center gap-2 xl:flex">
-        {items.map(([p,l])=><Link key={p} href={`/${locale}/${p}`} className="rounded-xl border border-ink/10 bg-white px-4 py-3 text-[14px] font-semibold text-ink/75 shadow-sm transition hover:-translate-y-0.5 hover:border-ocean/30 hover:bg-ocean/5 hover:text-ocean">{l}</Link>)}
+        {items.map(([p,l])=><Link key={p} href={`/${locale}/${p}`} className="rounded-xl border-2 border-ink/15 bg-white px-4 py-3 text-[14px] font-extrabold text-ink shadow-[0_4px_14px_rgba(8,20,39,.08)] transition hover:-translate-y-0.5 hover:border-ocean/40 hover:bg-ocean/5 hover:text-ocean">{l}</Link>)}
         <Lang locale={locale}/>
         <Link href={`/${locale}/quote`} className="btn-primary !rounded-full !px-6 !py-3.5 text-[14px] font-bold shadow-lg">{d.nav.quote}</Link>
       </nav>
