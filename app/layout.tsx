@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 export const metadata: Metadata = {
  metadataBase:new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://hkotradehub.com"),
@@ -10,4 +11,7 @@ export const metadata: Metadata = {
  alternates:{canonical:"https://hkotradehub.com"},
  robots:{index:true,follow:true}
 };
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="tr"><body>{children}</body></html>}
+export default async function RootLayout({children}:{children:React.ReactNode}){
+ const locale=(await headers()).get("x-hko-locale") || "tr";
+ return <html lang={locale}><body>{children}</body></html>;
+}
