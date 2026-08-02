@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Logo } from "./logo";
 import { dictionaries, type Locale } from "@/lib/i18n";
+import { saveLanguagePreference } from "./language-welcome";
 
 export function Header({locale}:{locale:Locale}){
   const [open,setOpen]=useState(false);
@@ -26,4 +28,11 @@ export function Header({locale}:{locale:Locale}){
     </div>}
   </header>
 }
-function Lang({locale}:{locale:Locale}){return <div className="relative flex items-center gap-1 rounded-full border border-ink/10 bg-white p-1"><span className="sr-only">Language</span>{(["tr","en","es"] as const).map(l=><Link className={`rounded-full px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider transition ${l===locale?"bg-ink text-white":"text-ink/45 hover:text-ink"}`} href={`/${l}`} key={l}>{l}</Link>)}<ChevronDown className="mr-1 text-ink/35" size={12}/></div>}
+function Lang({locale}:{locale:Locale}){
+  const pathname = usePathname();
+  return <div className="relative flex items-center gap-1 rounded-full border border-ink/10 bg-white p-1" aria-label="Language selector"><span className="sr-only">Language</span>{(["tr","en","es"] as const).map(l=>{
+    const href = pathname.replace(/^\/(tr|en|es)(?=\/|$)/, `/${l}`);
+    const label = l === "tr" ? "Türkçe" : l === "en" ? "English" : "Español";
+    return <Link onClick={()=>saveLanguagePreference(l)} aria-label={label} aria-current={l===locale?"page":undefined} className={`rounded-full px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper ${l===locale?"bg-ink text-white":"text-ink/45 hover:text-ink"}`} href={href} key={l}>{l}</Link>;
+  })}<ChevronDown className="mr-1 text-ink/35" size={12} aria-hidden="true"/></div>
+}
