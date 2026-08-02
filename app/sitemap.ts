@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";
+export default function sitemap(): MetadataRoute.Sitemap { const base=process.env.NEXT_PUBLIC_SITE_URL||"https://hkotradehub.com"; const pages=["","about","services","products","quote","suppliers","buyers","blog","contact"]; return ["tr","en","es"].flatMap(l=>pages.map(p=>({url:`${base}/${l}${p?`/${p}`:""}`,lastModified:new Date(),changeFrequency:"weekly" as const,priority:p?0.8:1}))); }

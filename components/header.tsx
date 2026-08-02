@@ -1,0 +1,29 @@
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { Logo } from "./logo";
+import { dictionaries, type Locale } from "@/lib/i18n";
+
+export function Header({locale}:{locale:Locale}){
+  const [open,setOpen]=useState(false);
+  const [scrolled,setScrolled]=useState(false);
+  const d=dictionaries[locale];
+  useEffect(()=>{const onScroll=()=>setScrolled(window.scrollY>16);onScroll();window.addEventListener("scroll",onScroll);return()=>window.removeEventListener("scroll",onScroll)},[]);
+  const items=[["",d.nav.home],["about",d.nav.about],["services",d.nav.services],["products",d.nav.products],["suppliers",d.nav.suppliers],["buyers",d.nav.buyers],["blog",d.nav.blog],["contact",d.nav.contact]] as const;
+  return <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled?"border-b border-ink/10 bg-white/95 shadow-[0_10px_40px_rgba(8,20,39,.06)] backdrop-blur-xl":"border-b border-ink/5 bg-white/85 backdrop-blur-lg"}`}>
+    <div className="container-shell flex h-[78px] items-center justify-between">
+      <Logo locale={locale}/>
+      <nav className="hidden items-center gap-5 xl:flex">
+        {items.map(([p,l])=><Link key={p} href={`/${locale}/${p}`} className="text-[13px] font-medium text-ink/66 transition hover:text-ocean">{l}</Link>)}
+        <Lang locale={locale}/>
+        <Link href={`/${locale}/quote`} className="btn-primary !px-5 !py-2.5">{d.nav.quote}</Link>
+      </nav>
+      <button className="grid h-11 w-11 place-items-center rounded-full border border-ink/10 xl:hidden" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label="Menu">{open?<X size={20}/>:<Menu size={20}/>}</button>
+    </div>
+    {open&&<div className="border-t border-ink/8 bg-white px-5 pb-6 xl:hidden">
+      <div className="container-shell !px-0 pt-3">{items.map(([p,l])=><Link onClick={()=>setOpen(false)} key={p} href={`/${locale}/${p}`} className="block border-b border-ink/5 py-3.5 text-sm font-medium">{l}</Link>)}<div className="mt-5 flex items-center justify-between"><Lang locale={locale}/><Link onClick={()=>setOpen(false)} href={`/${locale}/quote`} className="btn-primary">{d.nav.quote}</Link></div></div>
+    </div>}
+  </header>
+}
+function Lang({locale}:{locale:Locale}){return <div className="relative flex items-center gap-1 rounded-full border border-ink/10 bg-white p-1"><span className="sr-only">Language</span>{(["tr","en","es"] as const).map(l=><Link className={`rounded-full px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider transition ${l===locale?"bg-ink text-white":"text-ink/45 hover:text-ink"}`} href={`/${l}`} key={l}>{l}</Link>)}<ChevronDown className="mr-1 text-ink/35" size={12}/></div>}
