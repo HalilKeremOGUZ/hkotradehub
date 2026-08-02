@@ -28,6 +28,7 @@ export async function middleware(req: NextRequest) {
   const requestHeaders = new Headers(req.headers);
   const locale = pathname.match(/^\/(tr|en|es)(?:\/|$)/)?.[1] || "tr";
   requestHeaders.set("x-hko-locale", locale);
+  requestHeaders.set("x-hko-path", pathname);
   return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
