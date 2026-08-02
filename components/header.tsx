@@ -14,7 +14,7 @@ export function Header({locale}:{locale:Locale}){
   useEffect(()=>{const onScroll=()=>setScrolled(window.scrollY>16);onScroll();window.addEventListener("scroll",onScroll);return()=>window.removeEventListener("scroll",onScroll)},[]);
   const items=[["",d.nav.home],["about",d.nav.about],["services",d.nav.services],["products",d.nav.products],["suppliers",d.nav.suppliers],["buyers",d.nav.buyers],["blog",d.nav.blog],["contact",d.nav.contact]] as const;
   return <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled?"border-b border-ink/10 bg-white/95 shadow-[0_10px_40px_rgba(8,20,39,.06)] backdrop-blur-xl":"border-b border-ink/5 bg-white/85 backdrop-blur-lg"}`}>
-    <div className="container-shell flex h-[92px] items-center justify-between">
+    <div className="container-shell flex h-[184px] items-center justify-between">
       <Logo locale={locale}/>
       <nav className="hidden items-center gap-5 xl:flex">
         {items.map(([p,l])=><Link key={p} href={`/${locale}/${p}`} className="text-[13px] font-medium text-ink/66 transition hover:text-ocean">{l}</Link>)}
