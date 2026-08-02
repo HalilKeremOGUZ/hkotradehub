@@ -5,6 +5,7 @@ import { WhatsApp } from "@/components/whatsapp";
 import { LanguageWelcome } from "@/components/language-welcome";
 import { isLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
 const seo = {
   tr: { title: "HKO Trade Hub | Küresel B2B Ticaret Platformu", description: "Türkiye ve Şili arasında güvenilir tedarikçi bağlantıları, pazar araştırması, lojistik koordinasyonu ve sınır ötesi büyüme desteği." },
@@ -16,12 +17,14 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
   const {locale} = await params;
   if (!isLocale(locale)) return {};
   const current = seo[locale];
+  const pathname = (await headers()).get("x-hko-path") || `/${locale}`;
+  const localizedPath = pathname.replace(/^\/(tr|en|es)(?=\/|$)/, "");
   return {
-    title: current.title,
+    title: { absolute: current.title },
     description: current.description,
     alternates: {
-      canonical: `https://hkotradehub.com/${locale}`,
-      languages: { tr: "/tr", en: "/en", es: "/es", "x-default": "/en" },
+      canonical: `https://hkotradehub.com${pathname}`,
+      languages: { tr: `/tr${localizedPath}`, en: `/en${localizedPath}`, es: `/es${localizedPath}`, "x-default": `/en${localizedPath}` },
     },
     openGraph: { title: current.title, description: current.description, locale: locale === "tr" ? "tr_TR" : locale === "es" ? "es_CL" : "en_US" },
   };
