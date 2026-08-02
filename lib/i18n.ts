@@ -4,7 +4,7 @@ export const isLocale = (value: string): value is Locale => locales.includes(val
 
 export const dictionaries = {
   tr: {
-    nav:{home:"Ana Sayfa",about:"Hakkımızda",services:"Hizmetler",products:"Ürünler",suppliers:"Tedarikçiler",buyers:"Alıcılar",blog:"İçgörüler",contact:"İletişim",quote:"Teklif İste"},
+    nav:{home:"Ana Sayfa",about:"Hakkımızda",services:"Hizmetler",products:"Ürünler",suppliers:"Tedarikçiler",buyers:"Alıcılar",blog:"Blog",contact:"İletişim",quote:"Teklif İste"},
     hero:{eyebrow:"Küresel B2B Ticaret Platformu",title:"Güvenilir ticaret çözümleriyle küresel pazarları buluşturuyoruz.",text:"Türkiye–Şili ticaretinde uzmanlaşan HKO Trade Hub; doğrulanmış iş bağlantıları, pazar bilgisi ve uçtan uca operasyon desteği sunar.",primary:"Fırsatları Keşfet",secondary:"Teklif İste",supplier:"Tedarikçi Ol",trust:"Türkiye–Şili uzmanlığı · Küresel büyüme vizyonu"},
     home:{
       categoriesEyebrow:"Öncelikli sektörler",categoriesTitle:"Sınır ötesi büyüme için güçlü sektör ağı",categoriesText:"Sanayi, otomotiv, madencilik, tarım ve tüketim ürünlerinde seçilmiş ticaret fırsatlarını tek merkezde keşfedin.",
@@ -18,7 +18,7 @@ export const dictionaries = {
     common:{learn:"Detayları Gör",featured:"Öne Çıkan Ürünler",why:"Neden HKO Trade Hub?",ctaTitle:"Türkiye ve Şili arasında yeni bir ticaret fırsatı başlatın.",ctaText:"Ekibimiz ürün, tedarikçi, lojistik ve mevzuat ihtiyaçlarınızı değerlendirerek size özel yol haritası hazırlar.",contact:"Uzmanla Görüş"}
   },
   en: {
-    nav:{home:"Home",about:"About",services:"Services",products:"Products",suppliers:"Suppliers",buyers:"Buyers",blog:"Insights",contact:"Contact",quote:"Request Quote"},
+    nav:{home:"Home",about:"About",services:"Services",products:"Products",suppliers:"Suppliers",buyers:"Buyers",blog:"Blog",contact:"Contact",quote:"Request Quote"},
     hero:{eyebrow:"Global B2B Trade Platform",title:"Connecting global markets with trusted trade solutions.",text:"Specialized in Türkiye–Chile trade, HKO Trade Hub delivers verified business connections, market intelligence and end-to-end operational support.",primary:"Explore Opportunities",secondary:"Request a Quote",supplier:"Become a Supplier",trust:"Türkiye–Chile expertise · Global growth vision"},
     home:{
       categoriesEyebrow:"Priority industries",categoriesTitle:"A strong industry network for cross-border growth",categoriesText:"Discover selected trade opportunities across industry, automotive, mining, agriculture and consumer goods.",
@@ -32,7 +32,7 @@ export const dictionaries = {
     common:{learn:"View Details",featured:"Featured Products",why:"Why HKO Trade Hub?",ctaTitle:"Start a new trade opportunity between Türkiye and Chile.",ctaText:"Our team evaluates your product, supplier, logistics and compliance needs to build a tailored roadmap.",contact:"Talk to an Expert"}
   },
   es: {
-    nav:{home:"Inicio",about:"Nosotros",services:"Servicios",products:"Productos",suppliers:"Proveedores",buyers:"Compradores",blog:"Perspectivas",contact:"Contacto",quote:"Solicitar Cotización"},
+    nav:{home:"Inicio",about:"Nosotros",services:"Servicios",products:"Productos",suppliers:"Proveedores",buyers:"Compradores",blog:"Blog",contact:"Contacto",quote:"Solicitar Cotización"},
     hero:{eyebrow:"Plataforma B2B Global",title:"Conectamos mercados globales con soluciones comerciales confiables.",text:"Especializado en el comercio Türkiye–Chile, HKO Trade Hub ofrece conexiones verificadas, inteligencia de mercado y apoyo operativo integral.",primary:"Explorar Oportunidades",secondary:"Solicitar Cotización",supplier:"Ser Proveedor",trust:"Experiencia Türkiye–Chile · Visión de crecimiento global"},
     home:{
       categoriesEyebrow:"Industrias prioritarias",categoriesTitle:"Una red industrial sólida para crecer sin fronteras",categoriesText:"Descubra oportunidades seleccionadas en industria, automoción, minería, agricultura y bienes de consumo.",
