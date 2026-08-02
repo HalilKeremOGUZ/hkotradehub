@@ -1,0 +1,3 @@
+import {MessageCircle} from "lucide-react";import type {Locale} from "@/lib/i18n";
+const messages={tr:"Merhaba HKO Trade Hub",en:"Hello HKO Trade Hub",es:"Hola HKO Trade Hub"};
+export function WhatsApp({locale}:{locale:Locale}){const n=process.env.NEXT_PUBLIC_WHATSAPP_NUMBER||"56945025846";return <a aria-label="WhatsApp" target="_blank" rel="noreferrer" href={`https://wa.me/${n}?text=${encodeURIComponent(messages[locale])}`} className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-xl transition hover:scale-105"><MessageCircle/></a>}
