@@ -1,2 +1,16 @@
 import type { MetadataRoute } from "next";
-export default function sitemap(): MetadataRoute.Sitemap { const base=process.env.NEXT_PUBLIC_SITE_URL||"https://hkotradehub.com"; const pages=["","about","services","products","quote","suppliers","buyers","blog","contact"]; return ["tr","en","es"].flatMap(l=>pages.map(p=>({url:`${base}/${l}${p?`/${p}`:""}`,lastModified:new Date(),changeFrequency:"weekly" as const,priority:p?0.8:1}))); }
+
+const base = "https://www.hkotradehub.com";
+const locales = ["tr", "en", "es"] as const;
+const pages = ["", "about", "services", "products", "suppliers", "buyers", "blog", "contact", "quote"];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return locales.flatMap((locale) =>
+    pages.map((page) => ({
+      url: base + "/" + locale + (page ? "/" + page : ""),
+      lastModified: new Date(),
+      changeFrequency: page === "" ? "weekly" as const : "monthly" as const,
+      priority: page === "" ? 1 : 0.7,
+    })),
+  );
+}
