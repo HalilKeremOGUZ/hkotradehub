@@ -22,7 +22,7 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
     title: { absolute: current.title },
     description: current.description,
     alternates: {
-      canonical: `https://hkotradehub.com${pathname}`,
+      canonical: `https://www.hkotradehub.com${pathname}`,
       languages: { tr: `/tr${localizedPath}`, en: `/en${localizedPath}`, es: `/es${localizedPath}`, "x-default": `/en${localizedPath}` },
     },
     openGraph: { title: current.title, description: current.description, locale: locale === "tr" ? "tr_TR" : locale === "es" ? "es_CL" : "en_US" },
