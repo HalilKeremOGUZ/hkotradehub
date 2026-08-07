@@ -6,6 +6,12 @@ const secret = new TextEncoder().encode(process.env.JWT_SECRET || "development-s
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  if (req.nextUrl.hostname === "hkotradehub.com") {
+    const canonicalUrl = req.nextUrl.clone();
+    canonicalUrl.hostname = "www.hkotradehub.com";
+    canonicalUrl.protocol = "https:";
+    return NextResponse.redirect(canonicalUrl, 308);
+  }
   const hasLocale = locales.some((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
 
   if (!hasLocale && !pathname.startsWith("/api") && !pathname.startsWith("/_next") && !pathname.includes(".")) {
