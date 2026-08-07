@@ -15,7 +15,7 @@ export function localizeCountry(country: string, locale: Locale) {
 export const dictionaries = {
   tr: {
     nav:{home:"Ana Sayfa",about:"Hakkımızda",services:"Hizmetler",products:"Ürünler",suppliers:"Tedarikçiler",buyers:"Alıcılar",blog:"Blog",contact:"İletişim",quote:"Teklif İste"},
-    hero:{eyebrow:"Küresel B2B Ticaret Platformu",title:"Güvenilir ticaret çözümleriyle küresel pazarları buluşturuyoruz.",text:"Türkiye–Şili ticaretinde uzmanlaşan HKO Trade Hub; doğrulanmış iş bağlantıları, pazar bilgisi ve uçtan uca operasyon desteği sunar.",primary:"Fırsatları Keşfet",secondary:"Teklif İste",supplier:"Tedarikçi Ol",trust:"Türkiye–Şili uzmanlığı · Küresel büyüme vizyonu"},
+    hero:{eyebrow:"Küresel B2B Ticaret Platformu",title:"Türkiye ve Şili arasında güvenilir B2B ticaret.",text:"Türkiye–Şili ithalat ve ihracatında uzmanlaşan HKO Trade Hub; doğrulanmış tedarikçi ve alıcı bağlantıları, pazar bilgisi ve uçtan uca operasyon desteği sunar.",primary:"Fırsatları Keşfet",secondary:"Teklif İste",supplier:"Tedarikçi Ol",trust:"Türkiye–Şili uzmanlığı · Küresel büyüme vizyonu"},
     home:{
       categoriesEyebrow:"Öncelikli sektörler",categoriesTitle:"Sınır ötesi büyüme için güçlü sektör ağı",categoriesText:"Sanayi, otomotiv, madencilik, tarım ve tüketim ürünlerinde seçilmiş ticaret fırsatlarını tek merkezde keşfedin.",
       servicesEyebrow:"Uçtan uca destek",servicesTitle:"Bir bağlantıdan daha fazlası",servicesText:"Doğru iş ortağını bulmaktan lojistik ve mevzuat koordinasyonuna kadar ticaret sürecinin kritik aşamalarında yanınızdayız.",
@@ -29,7 +29,7 @@ export const dictionaries = {
   },
   en: {
     nav:{home:"Home",about:"About",services:"Services",products:"Products",suppliers:"Suppliers",buyers:"Buyers",blog:"Blog",contact:"Contact",quote:"Request Quote"},
-    hero:{eyebrow:"Global B2B Trade Platform",title:"Connecting global markets with trusted trade solutions.",text:"Specialized in Turkey–Chile trade, HKO Trade Hub delivers verified business connections, market intelligence and end-to-end operational support.",primary:"Explore Opportunities",secondary:"Request a Quote",supplier:"Become a Supplier",trust:"Turkey–Chile expertise · Global growth vision"},
+    hero:{eyebrow:"Global B2B Trade Platform",title:"Trusted B2B trade between Turkey and Chile.",text:"Specialized in Turkey–Chile import and export, HKO Trade Hub delivers verified supplier and buyer connections, market intelligence and end-to-end operational support.",primary:"Explore Opportunities",secondary:"Request a Quote",supplier:"Become a Supplier",trust:"Turkey–Chile expertise · Global growth vision"},
     home:{
       categoriesEyebrow:"Priority industries",categoriesTitle:"A strong industry network for cross-border growth",categoriesText:"Discover selected trade opportunities across industry, automotive, mining, agriculture and consumer goods.",
       servicesEyebrow:"End-to-end support",servicesTitle:"More than a business connection",servicesText:"From finding the right partner to coordinating logistics and compliance, we support the critical stages of your trade journey.",
@@ -43,7 +43,7 @@ export const dictionaries = {
   },
   es: {
     nav:{home:"Inicio",about:"Nosotros",services:"Servicios",products:"Productos",suppliers:"Proveedores",buyers:"Compradores",blog:"Blog",contact:"Contacto",quote:"Solicitar Cotización"},
-    hero:{eyebrow:"Plataforma B2B Global",title:"Conectamos mercados globales con soluciones comerciales confiables.",text:"Especializado en el comercio Turquía–Chile, HKO Trade Hub ofrece conexiones verificadas, inteligencia de mercado y apoyo operativo integral.",primary:"Explorar Oportunidades",secondary:"Solicitar Cotización",supplier:"Ser Proveedor",trust:"Experiencia Turquía–Chile · Visión de crecimiento global"},
+    hero:{eyebrow:"Plataforma B2B Global",title:"Comercio B2B confiable entre Turquía y Chile.",text:"Especializado en importación y exportación Turquía–Chile, HKO Trade Hub ofrece conexiones verificadas de proveedores y compradores, inteligencia de mercado y apoyo integral.",primary:"Explorar Oportunidades",secondary:"Solicitar Cotización",supplier:"Ser Proveedor",trust:"Experiencia Turquía–Chile · Visión de crecimiento global"},
     home:{
       categoriesEyebrow:"Industrias prioritarias",categoriesTitle:"Una red industrial sólida para crecer sin fronteras",categoriesText:"Descubra oportunidades seleccionadas en industria, automoción, minería, agricultura y bienes de consumo.",
       servicesEyebrow:"Apoyo integral",servicesTitle:"Más que una conexión comercial",servicesText:"Desde encontrar el socio adecuado hasta coordinar logística y cumplimiento, apoyamos las etapas críticas de su operación.",
