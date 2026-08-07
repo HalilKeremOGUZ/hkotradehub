@@ -19,7 +19,7 @@ const copy = {
     request: "Özel fırsat talebi oluştur", note: "Yeni fırsatlar düzenli olarak eklenir. Ticari uygunluk, miktar ve teslim koşullarına göre ayrıca değerlendirilir."
   },
   en: {
-    all: "All opportunities", turkiye: "From Türkiye", chile: "From Chile",
+    all: "All opportunities", turkiye: "From Turkey", chile: "From Chile",
     count: "active opportunities", sectors: "priority sectors", markets: "connected markets",
     verified: "Pre-screened", current: "Current trade focus", scalable: "Scalable requirements",
     result: "Opportunities matching your selection", viewAll: "View all products",
@@ -27,7 +27,7 @@ const copy = {
     request: "Create a custom opportunity", note: "New opportunities are added regularly. Commercial fit is assessed separately based on volume and delivery terms."
   },
   es: {
-    all: "Todas las oportunidades", turkiye: "Desde Türkiye", chile: "Desde Chile",
+    all: "Todas las oportunidades", turkiye: "Desde Turquía", chile: "Desde Chile",
     count: "oportunidades activas", sectors: "sectores prioritarios", markets: "mercados conectados",
     verified: "Preseleccionadas", current: "Enfoque comercial actual", scalable: "Necesidades escalables",
     result: "Oportunidades según su selección", viewAll: "Ver todos los productos",

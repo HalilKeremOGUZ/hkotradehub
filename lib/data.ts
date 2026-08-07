@@ -11,7 +11,7 @@ export const products = [
 ];
 
 export const posts = [
- {slug:"turkiye-chile-trade-guide",date:"2026-07-18",title:{tr:"Türkiye–Şili Ticaretine Başlangıç Rehberi",en:"Getting Started with Türkiye–Chile Trade",es:"Guía para iniciar comercio Türkiye–Chile"}},
+ {slug:"turkiye-chile-trade-guide",date:"2026-07-18",title:{tr:"Türkiye–Şili Ticaretine Başlangıç Rehberi",en:"Getting Started with Turkey–Chile Trade",es:"Guía para iniciar comercio Turquía–Chile"}},
  {slug:"supplier-verification",date:"2026-07-10",title:{tr:"Uluslararası Tedarikçi Nasıl Doğrulanır?",en:"How to Verify an International Supplier",es:"Cómo verificar un proveedor internacional"}},
  {slug:"logistics-checklist",date:"2026-06-28",title:{tr:"İhracat Lojistiği Kontrol Listesi",en:"Export Logistics Checklist",es:"Lista de control de logística de exportación"}}
 ];

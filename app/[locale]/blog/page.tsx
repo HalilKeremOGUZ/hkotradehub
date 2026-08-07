@@ -16,14 +16,14 @@ const copy = {
     eyebrow: "Blog",
     title: "Trade intelligence for two markets",
     text: "Practical guidance on sourcing, exporting, compliance and logistics.",
-    summary: "Actionable insights for companies trading across Türkiye and Chile.",
+    summary: "Actionable insights for companies trading across Turkey and Chile.",
     readArticle: "Read article",
   },
   es: {
     eyebrow: "Blog",
     title: "Inteligencia comercial para dos mercados",
     text: "Orientación práctica sobre abastecimiento, exportación, cumplimiento normativo y logística.",
-    summary: "Información práctica para empresas que comercian entre Türkiye y Chile.",
+    summary: "Información práctica para empresas que comercian entre Turquía y Chile.",
     readArticle: "Leer artículo",
   },
 } as const;

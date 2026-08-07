@@ -21,8 +21,8 @@ const languages: Array<{ code: Locale; name: string; region: string; symbol: str
 ];
 const copy={
  tr:{badge:"Küresel B2B Ticaret",title:"HKO Trade Hub’a Hoş Geldiniz",text:"Türkiye ve Şili arasındaki güvenilir ticaret fırsatlarını keşfetmek için dilinizi seçin.",choose:"Dilinizi seçin",continue:"Devam et",saved:"Tercihiniz bu cihazda kaydedilecektir."},
- en:{badge:"Global B2B Trade",title:"Welcome to HKO Trade Hub",text:"Choose your language to explore trusted trade opportunities between Türkiye and Chile.",choose:"Choose your language",continue:"Continue",saved:"Your preference will be saved on this device."},
- es:{badge:"Comercio B2B Global",title:"Bienvenido a HKO Trade Hub",text:"Elija su idioma para explorar oportunidades comerciales confiables entre Türkiye y Chile.",choose:"Elija su idioma",continue:"Continuar",saved:"Su preferencia se guardará en este dispositivo."}
+ en:{badge:"Global B2B Trade",title:"Welcome to HKO Trade Hub",text:"Choose your language to explore trusted trade opportunities between Turkey and Chile.",choose:"Choose your language",continue:"Continue",saved:"Your preference will be saved on this device."},
+ es:{badge:"Comercio B2B Global",title:"Bienvenido a HKO Trade Hub",text:"Elija su idioma para explorar oportunidades comerciales confiables entre Turquía y Chile.",choose:"Elija su idioma",continue:"Continuar",saved:"Su preferencia se guardará en este dispositivo."}
 } as const;
 
 export function LanguageWelcome() {
@@ -69,13 +69,15 @@ export function LanguageWelcome() {
         <motion.div className="w-full" initial={reducedMotion ? false : { y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .65, ease: [0.22, 1, 0.36, 1] }}>
           <div className="mb-9 flex items-center justify-center gap-3 sm:mb-12">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-aqua to-white font-bold text-ink shadow-[0_18px_50px_rgba(81,214,203,.2)]">HKO</div>
-            <div><strong className="block text-lg leading-none">Trade Hub</strong><span className="text-[10px] uppercase tracking-[.24em] text-white/50">Türkiye · Chile</span></div>
+            <div><strong className="block text-lg leading-none">Trade Hub</strong><span className="text-[10px] uppercase tracking-[.24em] text-white/50">Türkiye · Turkey · Turquía · Chile</span></div>
           </div>
 
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.2em] text-aqua backdrop-blur"><Globe2 className="h-4 w-4" aria-hidden="true" /> {t.badge}</div>
-            <h1 id="language-welcome-title" className="text-3xl font-semibold tracking-tight sm:text-5xl">{t.title}</h1>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-white/60 sm:text-base">{t.text}</p>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.2em] text-aqua backdrop-blur"><Globe2 className="h-4 w-4" aria-hidden="true" /> Global B2B Trade · Küresel B2B Ticaret · Comercio B2B Global</div>
+            <h1 id="language-welcome-title" className="text-3xl font-semibold tracking-tight sm:text-5xl">HKO Trade Hub’a Hoş Geldiniz</h1>
+            <p className="mt-2 text-lg font-medium text-white/85 sm:text-xl">Welcome to HKO Trade Hub</p>
+            <p className="mt-1 text-lg font-medium text-white/85 sm:text-xl">Bienvenido a HKO Trade Hub</p>
+            <div className="mx-auto mt-5 max-w-xl space-y-1 text-sm leading-6 text-white/60 sm:text-base"><p>{copy.tr.text}</p><p>{copy.en.text}</p><p>{copy.es.text}</p></div>
           </div>
 
           <fieldset className="mx-auto mt-8 grid max-w-3xl gap-3 sm:mt-10 sm:grid-cols-3" aria-label={t.choose}>

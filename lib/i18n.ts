@@ -2,6 +2,16 @@ export const locales = ["tr", "en", "es"] as const;
 export type Locale = (typeof locales)[number];
 export const isLocale = (value: string): value is Locale => locales.includes(value as Locale);
 
+const countryNames = {
+  tr: { "Türkiye": "Türkiye", Chile: "Şili" },
+  en: { "Türkiye": "Turkey", Chile: "Chile" },
+  es: { "Türkiye": "Turquía", Chile: "Chile" },
+} as const;
+
+export function localizeCountry(country: string, locale: Locale) {
+  return countryNames[locale][country as keyof typeof countryNames.tr] ?? country;
+}
+
 export const dictionaries = {
   tr: {
     nav:{home:"Ana Sayfa",about:"Hakkımızda",services:"Hizmetler",products:"Ürünler",suppliers:"Tedarikçiler",buyers:"Alıcılar",blog:"Blog",contact:"İletişim",quote:"Teklif İste"},
@@ -19,30 +29,30 @@ export const dictionaries = {
   },
   en: {
     nav:{home:"Home",about:"About",services:"Services",products:"Products",suppliers:"Suppliers",buyers:"Buyers",blog:"Blog",contact:"Contact",quote:"Request Quote"},
-    hero:{eyebrow:"Global B2B Trade Platform",title:"Connecting global markets with trusted trade solutions.",text:"Specialized in Türkiye–Chile trade, HKO Trade Hub delivers verified business connections, market intelligence and end-to-end operational support.",primary:"Explore Opportunities",secondary:"Request a Quote",supplier:"Become a Supplier",trust:"Türkiye–Chile expertise · Global growth vision"},
+    hero:{eyebrow:"Global B2B Trade Platform",title:"Connecting global markets with trusted trade solutions.",text:"Specialized in Turkey–Chile trade, HKO Trade Hub delivers verified business connections, market intelligence and end-to-end operational support.",primary:"Explore Opportunities",secondary:"Request a Quote",supplier:"Become a Supplier",trust:"Turkey–Chile expertise · Global growth vision"},
     home:{
       categoriesEyebrow:"Priority industries",categoriesTitle:"A strong industry network for cross-border growth",categoriesText:"Discover selected trade opportunities across industry, automotive, mining, agriculture and consumer goods.",
       servicesEyebrow:"End-to-end support",servicesTitle:"More than a business connection",servicesText:"From finding the right partner to coordinating logistics and compliance, we support the critical stages of your trade journey.",
-      routeEyebrow:"Specialized trade corridor",routeTitle:"From Türkiye to Chile, from Chile to the world",routeText:"We build a trusted trade bridge across Istanbul, Valparaíso and Santiago, supported by practical local market intelligence.",
+      routeEyebrow:"Specialized trade corridor",routeTitle:"From Turkey to Chile, from Chile to the world",routeText:"We build a trusted trade bridge across Istanbul, Valparaíso and Santiago, supported by practical local market intelligence.",
       featuredEyebrow:"Selected opportunities",featuredTitle:"Featured products",featuredText:"Carefully selected product groups for international buyers and suppliers.",
       processEyebrow:"How it works",processTitle:"A clear path from opportunity to agreement",processText:"We understand your needs, identify the right connection and clarify the next steps.",
       trustEyebrow:"Trust-led approach",trustTitle:"Make better-informed international trade decisions",trustText:"We assess every opportunity through transparency, verification and commercial feasibility.",
       ctaTitle:"Let’s build your next international trade opportunity.",ctaText:"Share your product, supplier, buyer or market requirement. Our team will prepare a practical starting plan.",ctaPrimary:"Create a Trade Request",ctaSecondary:"Talk to Our Team"
     },
-    common:{learn:"View Details",featured:"Featured Products",why:"Why HKO Trade Hub?",ctaTitle:"Start a new trade opportunity between Türkiye and Chile.",ctaText:"Our team evaluates your product, supplier, logistics and compliance needs to build a tailored roadmap.",contact:"Talk to an Expert"}
+    common:{learn:"View Details",featured:"Featured Products",why:"Why HKO Trade Hub?",ctaTitle:"Start a new trade opportunity between Turkey and Chile.",ctaText:"Our team evaluates your product, supplier, logistics and compliance needs to build a tailored roadmap.",contact:"Talk to an Expert"}
   },
   es: {
     nav:{home:"Inicio",about:"Nosotros",services:"Servicios",products:"Productos",suppliers:"Proveedores",buyers:"Compradores",blog:"Blog",contact:"Contacto",quote:"Solicitar Cotización"},
-    hero:{eyebrow:"Plataforma B2B Global",title:"Conectamos mercados globales con soluciones comerciales confiables.",text:"Especializado en el comercio Türkiye–Chile, HKO Trade Hub ofrece conexiones verificadas, inteligencia de mercado y apoyo operativo integral.",primary:"Explorar Oportunidades",secondary:"Solicitar Cotización",supplier:"Ser Proveedor",trust:"Experiencia Türkiye–Chile · Visión de crecimiento global"},
+    hero:{eyebrow:"Plataforma B2B Global",title:"Conectamos mercados globales con soluciones comerciales confiables.",text:"Especializado en el comercio Turquía–Chile, HKO Trade Hub ofrece conexiones verificadas, inteligencia de mercado y apoyo operativo integral.",primary:"Explorar Oportunidades",secondary:"Solicitar Cotización",supplier:"Ser Proveedor",trust:"Experiencia Turquía–Chile · Visión de crecimiento global"},
     home:{
       categoriesEyebrow:"Industrias prioritarias",categoriesTitle:"Una red industrial sólida para crecer sin fronteras",categoriesText:"Descubra oportunidades seleccionadas en industria, automoción, minería, agricultura y bienes de consumo.",
       servicesEyebrow:"Apoyo integral",servicesTitle:"Más que una conexión comercial",servicesText:"Desde encontrar el socio adecuado hasta coordinar logística y cumplimiento, apoyamos las etapas críticas de su operación.",
-      routeEyebrow:"Corredor comercial especializado",routeTitle:"De Türkiye a Chile, de Chile al mundo",routeText:"Construimos un puente confiable entre Estambul, Valparaíso y Santiago, respaldado por conocimiento práctico del mercado local.",
+      routeEyebrow:"Corredor comercial especializado",routeTitle:"De Turquía a Chile, de Chile al mundo",routeText:"Construimos un puente confiable entre Estambul, Valparaíso y Santiago, respaldado por conocimiento práctico del mercado local.",
       featuredEyebrow:"Oportunidades seleccionadas",featuredTitle:"Productos destacados",featuredText:"Grupos de productos cuidadosamente seleccionados para compradores y proveedores internacionales.",
       processEyebrow:"¿Cómo funciona?",processTitle:"Un camino claro desde la oportunidad hasta el acuerdo",processText:"Comprendemos su necesidad, identificamos la conexión adecuada y aclaramos los próximos pasos.",
       trustEyebrow:"Enfoque basado en confianza",trustTitle:"Decisiones mejor informadas en comercio internacional",trustText:"Evaluamos cada oportunidad con transparencia, verificación y viabilidad comercial.",
       ctaTitle:"Construyamos su próxima oportunidad de comercio internacional.",ctaText:"Comparta su necesidad de producto, proveedor, comprador o mercado. Nuestro equipo preparará un plan inicial práctico.",ctaPrimary:"Crear Solicitud Comercial",ctaSecondary:"Hablar con el Equipo"
     },
-    common:{learn:"Ver Detalles",featured:"Productos Destacados",why:"¿Por qué HKO Trade Hub?",ctaTitle:"Inicie una nueva oportunidad comercial entre Türkiye y Chile.",ctaText:"Nuestro equipo evalúa sus necesidades de producto, proveedor, logística y cumplimiento para crear una hoja de ruta personalizada.",contact:"Hablar con un Experto"}
+    common:{learn:"Ver Detalles",featured:"Productos Destacados",why:"¿Por qué HKO Trade Hub?",ctaTitle:"Inicie una nueva oportunidad comercial entre Turquía y Chile.",ctaText:"Nuestro equipo evalúa sus necesidades de producto, proveedor, logística y cumplimiento para crear una hoja de ruta personalizada.",contact:"Hablar con un Experto"}
   }
 } as const;
