@@ -35,8 +35,9 @@ export function LanguageWelcome() {
   const t=copy[selected];
 
   useEffect(() => {
+    const previewRequested = new URLSearchParams(window.location.search).get("language") === "choose";
     const saved = window.localStorage.getItem(LANGUAGE_PREFERENCE_KEY);
-    if (saved !== "tr" && saved !== "en" && saved !== "es") setVisible(true);
+    if (previewRequested || (saved !== "tr" && saved !== "en" && saved !== "es")) setVisible(true);
   }, []);
 
   useEffect(() => {
