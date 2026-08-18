@@ -12,6 +12,14 @@ export async function middleware(req: NextRequest) {
     canonicalUrl.protocol = "https:";
     return NextResponse.redirect(canonicalUrl, 308);
   }
+
+  // Keep the root URL deterministic for crawlers. A cookie-dependent redirect
+  // lets the same URL resolve to multiple language pages, which can cause Google
+  // to select `/` instead of the declared `/tr` canonical.
+  if (pathname === "/") {
+    return NextResponse.redirect(new URL("/tr", req.url), 308);
+  }
+
   const hasLocale = locales.some((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
 
   if (!hasLocale && !pathname.startsWith("/api") && !pathname.startsWith("/_next") && !pathname.includes(".")) {
