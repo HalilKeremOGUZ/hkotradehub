@@ -6,7 +6,7 @@ export const SITE_URL = "https://www.hkotradehub.com";
 
 const routeMetadata = {
   tr: {
-    "": ["Türkiye–Şili İthalat İhracat ve B2B Ticaret", "Türkiye ile Şili arasında ithalat, ihracat, güvenilir tedarikçi bulma, pazar araştırması, lojistik ve uçtan uca B2B ticaret desteği."],
+    "": ["HKO Trade Hub | Türkiye–Şili İthalat İhracat", "HKO Trade Hub (hkotradehub), Türkiye ile Şili arasında ithalat, ihracat, güvenilir tedarikçi bulma, pazar araştırması, lojistik ve B2B ticaret desteği sunar."],
     about: ["Türkiye–Şili Ticaret Uzmanı HKO Trade Hub", "Türkiye–Şili ithalat ve ihracatında yerel uzmanlık, güvenilir iş bağlantıları ve küresel B2B ticaret ağı sunan HKO Trade Hub'ı tanıyın."],
     services: ["Türkiye–Şili İthalat İhracat Danışmanlığı", "Türkiye–Şili dış ticareti için B2B tedarikçi bulma, firma doğrulama, pazar araştırması, gümrük, lojistik ve ithalat ihracat danışmanlığı."],
     products: ["Türkiye'den Şili'ye İhraç Edilen Ürünler", "Türkiye'den Şili'ye ithalat için gıda, makine, yapı malzemesi ve otomotiv yedek parçaları; Şili'den Türkiye'ye tarım ve gıda ürünleri."],
@@ -17,7 +17,7 @@ const routeMetadata = {
     quote: ["Ticaret Teklifi İsteyin", "Ürün ve uluslararası ticaret ihtiyacınızı paylaşın; ekibimiz size özel bir başlangıç planı ve teklif hazırlasın."],
   },
   en: {
-    "": ["Turkey–Chile Import Export & B2B Sourcing", "Import, export and B2B sourcing between Turkey and Chile with verified suppliers, market research, logistics and end-to-end trade support."],
+    "": ["HKO Trade Hub | Turkey–Chile Import Export", "HKO Trade Hub (hkotradehub) provides import, export and B2B sourcing between Turkey and Chile with verified suppliers, market research and logistics support."],
     about: ["Turkey–Chile Trade Experts | HKO Trade Hub", "Meet HKO Trade Hub, a trusted Turkey–Chile import-export partner with local expertise, verified business connections and a global B2B network."],
     services: ["Turkey–Chile Import Export Consulting", "B2B supplier sourcing in Turkey, company verification, market research, customs, logistics and import-export consulting for trade with Chile."],
     products: ["Products to Import from Turkey to Chile", "Import Turkish food, machinery, construction materials and automotive spare parts to Chile, plus selected agricultural products from Chile to Turkey."],
@@ -28,7 +28,7 @@ const routeMetadata = {
     quote: ["Request a Trade Quote", "Share your product and international trade requirements for a tailored starting plan and quotation."],
   },
   es: {
-    "": ["Comercio, Importación y Exportación Turquía–Chile", "Importación, exportación y abastecimiento B2B entre Turquía y Chile con proveedores verificados, estudio de mercado, logística y apoyo integral."],
+    "": ["HKO Trade Hub | Comercio Turquía–Chile", "HKO Trade Hub (hkotradehub) facilita importación, exportación y abastecimiento B2B entre Turquía y Chile con proveedores verificados, estudio de mercado y logística."],
     about: ["Expertos en Comercio Turquía–Chile | HKO Trade Hub", "Conozca HKO Trade Hub, su experiencia local en importación y exportación Turquía–Chile, conexiones verificadas y red empresarial global."],
     services: ["Asesoría de Importación Turquía–Chile", "Búsqueda de proveedores en Turquía, verificación de empresas, estudio de mercado, aduanas, logística y asesoría de importación y exportación."],
     products: ["Productos para Importar de Turquía a Chile", "Importe desde Turquía alimentos, maquinaria, materiales de construcción y repuestos; encuentre también productos agrícolas chilenos para Turquía."],
@@ -74,7 +74,7 @@ export function getLocalizedMetadata(locale: Locale, pathname: string): Metadata
   };
 
   return {
-    title,
+    title: segments.length === 0 ? { absolute: title } : title,
     description,
     keywords: getKeywords(locale, segments, title),
     alternates: { canonical, languages },
@@ -93,9 +93,9 @@ export function getLocalizedMetadata(locale: Locale, pathname: string): Metadata
 
 function getKeywords(locale: Locale, segments: string[], pageTitle: string) {
   const core = {
-    tr: ["Türkiye Şili ticaret", "Türkiye'den Şili'ye ihracat", "Şili'den Türkiye'ye ithalat", "Türkiye'de güvenilir tedarikçi bulma", "ithalat ihracat danışmanlığı"],
-    en: ["Turkey Chile trade", "import from Turkey to Chile", "export from Chile to Turkey", "verified manufacturers in Turkey", "B2B sourcing Turkey"],
-    es: ["comercio Turquía Chile", "importar desde Turquía a Chile", "exportar desde Chile a Turquía", "proveedores verificados en Turquía", "asesoría de importación"],
+    tr: ["HKO Trade Hub", "hkotradehub", "Türkiye Şili ticaret", "Türkiye'den Şili'ye ihracat", "Şili'den Türkiye'ye ithalat", "Türkiye'de güvenilir tedarikçi bulma", "ithalat ihracat danışmanlığı"],
+    en: ["HKO Trade Hub", "hkotradehub", "Turkey Chile trade", "import from Turkey to Chile", "export from Chile to Turkey", "verified manufacturers in Turkey", "B2B sourcing Turkey"],
+    es: ["HKO Trade Hub", "hkotradehub", "comercio Turquía Chile", "importar desde Turquía a Chile", "exportar desde Chile a Turquía", "proveedores verificados en Turquía", "asesoría de importación"],
   }[locale];
   const routeSpecific = segments[0] === "products"
     ? locale === "tr" ? ["Türkiye'den Şili'ye ihraç edilen ürünler", "Türk yedek parça ihracatçıları", pageTitle] : locale === "en" ? ["products to import from Turkey", "Turkish spare parts exporters", pageTitle] : ["productos para importar de Turquía", "exportadores turcos de repuestos", pageTitle]
