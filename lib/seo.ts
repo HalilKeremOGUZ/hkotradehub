@@ -8,10 +8,10 @@ const routeMetadata = {
   tr: {
     "": ["Türkiye–Şili İthalat İhracat ve B2B Ticaret", "Türkiye ile Şili arasında ithalat, ihracat, güvenilir tedarikçi bulma, pazar araştırması, lojistik ve uçtan uca B2B ticaret desteği."],
     about: ["Türkiye–Şili Ticaret Uzmanı HKO Trade Hub", "Türkiye–Şili ithalat ve ihracatında yerel uzmanlık, güvenilir iş bağlantıları ve küresel B2B ticaret ağı sunan HKO Trade Hub'ı tanıyın."],
-    services: ["İthalat, İhracat ve B2B Tedarik Hizmetleri", "Türkiye–Şili ticareti için tedarikçi bulma, firma doğrulama, pazar araştırması, lojistik ve dış ticaret koordinasyonu hizmetleri."],
-    products: ["Türkiye ve Şili'den İthalat İhracat Ürünleri", "Türkiye ve Şili'deki güvenilir tedarikçilerden gıda, tarım, makine, yapı malzemesi ve otomotiv yedek parça ihracat fırsatları."],
-    suppliers: ["İhracatçılar ve Tedarikçiler İçin Küresel Pazar", "Türk ve Şilili üreticiler için uluslararası alıcı bulma, ihracat pazarı geliştirme, firma doğrulama ve dış ticaret koordinasyonu."],
-    buyers: ["Türkiye ve Şili'de Güvenilir Tedarikçi Bulma", "Türkiye ve Şili'den ürün ithal etmek isteyen alıcılar için güvenilir tedarikçi araştırması, teklif karşılaştırma ve lojistik desteği."],
+    services: ["Türkiye–Şili İthalat İhracat Danışmanlığı", "Türkiye–Şili dış ticareti için B2B tedarikçi bulma, firma doğrulama, pazar araştırması, gümrük, lojistik ve ithalat ihracat danışmanlığı."],
+    products: ["Türkiye'den Şili'ye İhraç Edilen Ürünler", "Türkiye'den Şili'ye ithalat için gıda, makine, yapı malzemesi ve otomotiv yedek parçaları; Şili'den Türkiye'ye tarım ve gıda ürünleri."],
+    suppliers: ["Şili'de Alıcı Arayan Türk İhracatçılar", "Türk üretici ve ihracatçılar için Şili'de distribütör ve uluslararası alıcı bulma, pazar geliştirme ve ihracat operasyon desteği."],
+    buyers: ["Türkiye'de Güvenilir Tedarikçi Bulma", "Türkiye'den Şili'ye ürün ithal etmek isteyen firmalar için güvenilir Türk üretici ve tedarikçi araştırması, teklif ve lojistik desteği."],
     blog: ["Türkiye–Şili İthalat İhracat Rehberi", "Türkiye–Şili ticareti, güvenilir tedarikçi bulma, ithalat, ihracat, gümrük, mevzuat ve lojistik hakkında pratik rehberler."],
     contact: ["İletişim", "Ürün, tedarikçi, alıcı veya pazar ihtiyacınızı HKO Trade Hub ekibiyle paylaşın."],
     quote: ["Ticaret Teklifi İsteyin", "Ürün ve uluslararası ticaret ihtiyacınızı paylaşın; ekibimiz size özel bir başlangıç planı ve teklif hazırlasın."],
@@ -19,10 +19,10 @@ const routeMetadata = {
   en: {
     "": ["Turkey–Chile Import Export & B2B Sourcing", "Import, export and B2B sourcing between Turkey and Chile with verified suppliers, market research, logistics and end-to-end trade support."],
     about: ["Turkey–Chile Trade Experts | HKO Trade Hub", "Meet HKO Trade Hub, a trusted Turkey–Chile import-export partner with local expertise, verified business connections and a global B2B network."],
-    services: ["Import, Export and B2B Sourcing Services", "Supplier sourcing, company verification, market research, logistics and trade compliance services for businesses trading between Turkey and Chile."],
-    products: ["Import Export Products from Turkey and Chile", "Source food, agriculture, machinery, construction materials and automotive spare parts from verified suppliers in Turkey and Chile."],
-    suppliers: ["Global Buyers for Turkish and Chilean Suppliers", "Find international buyers with supplier verification, export market development and cross-border trade coordination for producers in Turkey and Chile."],
-    buyers: ["Find Verified Suppliers in Turkey and Chile", "B2B supplier sourcing, product research, quotation comparison and logistics support for buyers importing from Turkey and Chile."],
+    services: ["Turkey–Chile Import Export Consulting", "B2B supplier sourcing in Turkey, company verification, market research, customs, logistics and import-export consulting for trade with Chile."],
+    products: ["Products to Import from Turkey to Chile", "Import Turkish food, machinery, construction materials and automotive spare parts to Chile, plus selected agricultural products from Chile to Turkey."],
+    suppliers: ["Find Buyers in Chile for Turkish Exports", "Market-entry, distributor search and buyer introductions in Chile for Turkish manufacturers and exporters."],
+    buyers: ["Find Verified Manufacturers in Turkey", "Find verified Turkish manufacturers and B2B suppliers with quotation comparison, due diligence and logistics support for importing to Chile."],
     blog: ["Turkey–Chile Import Export Guides", "Practical guides to Turkey–Chile trade, B2B sourcing, supplier verification, import-export compliance, customs and international logistics."],
     contact: ["Contact Us", "Tell the HKO Trade Hub team about your product, supplier, buyer or market requirement."],
     quote: ["Request a Trade Quote", "Share your product and international trade requirements for a tailored starting plan and quotation."],
@@ -30,10 +30,10 @@ const routeMetadata = {
   es: {
     "": ["Comercio, Importación y Exportación Turquía–Chile", "Importación, exportación y abastecimiento B2B entre Turquía y Chile con proveedores verificados, estudio de mercado, logística y apoyo integral."],
     about: ["Expertos en Comercio Turquía–Chile | HKO Trade Hub", "Conozca HKO Trade Hub, su experiencia local en importación y exportación Turquía–Chile, conexiones verificadas y red empresarial global."],
-    services: ["Servicios de Importación, Exportación y Abastecimiento", "Búsqueda y verificación de proveedores, estudio de mercado, logística y cumplimiento para empresas que comercian entre Turquía y Chile."],
-    products: ["Productos para Importar de Turquía y Chile", "Encuentre alimentos, productos agrícolas, maquinaria, materiales de construcción y repuestos de proveedores verificados en Turquía y Chile."],
-    suppliers: ["Compradores Globales para Proveedores de Turquía y Chile", "Acceso a compradores internacionales, desarrollo de mercados de exportación y coordinación comercial para productores turcos y chilenos."],
-    buyers: ["Proveedores Verificados en Turquía y Chile", "Búsqueda de proveedores B2B, comparación de cotizaciones y apoyo logístico para compradores que importan desde Turquía y Chile."],
+    services: ["Asesoría de Importación Turquía–Chile", "Búsqueda de proveedores en Turquía, verificación de empresas, estudio de mercado, aduanas, logística y asesoría de importación y exportación."],
+    products: ["Productos para Importar de Turquía a Chile", "Importe desde Turquía alimentos, maquinaria, materiales de construcción y repuestos; encuentre también productos agrícolas chilenos para Turquía."],
+    suppliers: ["Compradores en Chile para Exportadores Turcos", "Búsqueda de distribuidores y compradores en Chile, entrada al mercado y apoyo exportador para fabricantes y proveedores turcos."],
+    buyers: ["Proveedores y Fabricantes Verificados en Turquía", "Encuentre fabricantes y proveedores turcos verificados, compare cotizaciones y coordine la logística para importar desde Turquía a Chile."],
     blog: ["Guías de Importación y Exportación Turquía–Chile", "Guías prácticas sobre comercio Turquía–Chile, proveedores, importación, exportación, aduanas, cumplimiento y logística internacional."],
     contact: ["Contacto", "Comparta con HKO Trade Hub su necesidad de producto, proveedor, comprador o mercado."],
     quote: ["Solicite una Cotización Comercial", "Comparta sus necesidades de producto y comercio internacional para recibir un plan inicial y una cotización personalizada."],
@@ -93,12 +93,12 @@ export function getLocalizedMetadata(locale: Locale, pathname: string): Metadata
 
 function getKeywords(locale: Locale, segments: string[], pageTitle: string) {
   const core = {
-    tr: ["Türkiye Şili ticaret", "Türkiye Şili ithalat ihracat", "uluslararası B2B ticaret", "güvenilir tedarikçi bulma", "dış ticaret danışmanlığı"],
-    en: ["Turkey Chile trade", "Turkey Chile import export", "B2B sourcing Turkey", "verified Turkish suppliers", "international trade services"],
-    es: ["comercio Turquía Chile", "importar desde Turquía", "exportación Turquía Chile", "proveedores turcos verificados", "abastecimiento B2B"],
+    tr: ["Türkiye Şili ticaret", "Türkiye'den Şili'ye ihracat", "Şili'den Türkiye'ye ithalat", "Türkiye'de güvenilir tedarikçi bulma", "ithalat ihracat danışmanlığı"],
+    en: ["Turkey Chile trade", "import from Turkey to Chile", "export from Chile to Turkey", "verified manufacturers in Turkey", "B2B sourcing Turkey"],
+    es: ["comercio Turquía Chile", "importar desde Turquía a Chile", "exportar desde Chile a Turquía", "proveedores verificados en Turquía", "asesoría de importación"],
   }[locale];
   const routeSpecific = segments[0] === "products"
-    ? locale === "tr" ? ["Türkiye ihracat ürünleri", "Şili ithalat ürünleri", pageTitle] : locale === "en" ? ["products from Turkey", "Turkish exporters", pageTitle] : ["productos de Turquía", "exportadores turcos", pageTitle]
+    ? locale === "tr" ? ["Türkiye'den Şili'ye ihraç edilen ürünler", "Türk yedek parça ihracatçıları", pageTitle] : locale === "en" ? ["products to import from Turkey", "Turkish spare parts exporters", pageTitle] : ["productos para importar de Turquía", "exportadores turcos de repuestos", pageTitle]
     : segments[0] === "services"
       ? locale === "tr" ? ["ithalat ihracat danışmanlığı", "tedarikçi araştırması"] : locale === "en" ? ["import export consulting", "supplier sourcing"] : ["consultoría de importación y exportación", "búsqueda de proveedores"]
       : [];
