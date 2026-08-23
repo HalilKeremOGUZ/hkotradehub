@@ -10,7 +10,7 @@ export default function OpenGraphImage() {
       <div style={{display:"flex",fontSize:30,fontWeight:700,letterSpacing:2}}>HKO TRADE HUB</div>
       <div style={{display:"flex",flexDirection:"column",maxWidth:960}}>
         <div style={{display:"flex",fontSize:68,fontWeight:700,lineHeight:1.08}}>Trusted cross-border trade.</div>
-        <div style={{display:"flex",marginTop:24,fontSize:30,color:"#b9eee9"}}>Türkiye ⇄ Chile · Global B2B sourcing</div>
+        <div style={{display:"flex",marginTop:24,fontSize:30,color:"#b9eee9"}}>Türkiye - Chile · Global B2B sourcing</div>
       </div>
       <div style={{display:"flex",fontSize:24,color:"rgba(255,255,255,.72)"}}>www.hkotradehub.com</div>
     </div>,
