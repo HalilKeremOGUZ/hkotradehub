@@ -4,7 +4,7 @@ import { jwtVerify } from "jose";
 const locales = ["tr", "en", "es"];
 const secret = new TextEncoder().encode(process.env.JWT_SECRET || "development-secret-change-me");
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (req.nextUrl.hostname === "hkotradehub.com") {
     const canonicalUrl = req.nextUrl.clone();
