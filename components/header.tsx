@@ -32,7 +32,13 @@ function Lang({locale}:{locale:Locale}){
   const pathname = usePathname();
   const selector=locale==="tr"?"Dil seçici":locale==="es"?"Selector de idioma":"Language selector";
   return <div className="relative flex items-center gap-1 rounded-full border border-ink/10 bg-white p-1" aria-label={selector}><span className="sr-only">{selector}</span>{(["tr","en","es"] as const).map(l=>{
-    const href = pathname.replace(/^\/(tr|en|es)(?=\/|$)/, `/${l}`);
+    const tradePath = pathname.match(/^\/(tr|en|es)\/trade\/([^/]+)$/);
+    const tradeFallbacks: Record<Locale, string> = {
+      tr: "/tr/trade/siliye-ihracat",
+      en: "/en/trade/turkey-chile-trade",
+      es: "/es/trade/importar-desde-turquia-a-chile",
+    };
+    const href = tradePath ? tradeFallbacks[l] : pathname.replace(/^\/(tr|en|es)(?=\/|$)/, `/${l}`);
     const label = l === "tr" ? "Türkçe" : l === "en" ? "English" : "Español";
     return <Link onClick={()=>saveLanguagePreference(l)} aria-label={label} aria-current={l===locale?"page":undefined} className={`rounded-full px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper ${l===locale?"bg-ink text-white":"text-ink/45 hover:text-ink"}`} href={href} key={l}>{l}</Link>;
   })}<ChevronDown className="mr-1 text-ink/35" size={12} aria-hidden="true"/></div>

@@ -34,9 +34,10 @@ export async function generateMetadata({params}:{params:Promise<{locale:string;s
 export default async function TradeLanding({params}:{params:Promise<{locale:string;slug:string}>}){
  const {locale,slug}=await params;if(!isLocale(locale))notFound();
  const page=(pages[locale as LocaleKey] as Record<string,any>)[slug];if(!page)notFound();
+ const contactLabel=locale==="tr"?"İletişim":locale==="es"?"Contacto":"Contact";
  return <>
   <section className="bg-hero-glow py-20 sm:py-28"><div className="container-shell"><p className="eyebrow">HKO Trade Hub · Turkey ⇄ Chile</p><h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-[-.045em] text-ink sm:text-6xl">{page.h1}</h1><p className="mt-7 max-w-3xl text-lg leading-8 text-ink/62">{page.intro}</p><Link href={`/${locale}/quote`} className="btn-primary mt-9 inline-flex gap-2">{page.cta}<ArrowRight size={18}/></Link></div></section>
   <section className="section bg-white"><div className="container-shell grid gap-5 md:grid-cols-2">{page.items.map((item:string)=><article key={item} className="rounded-[1.6rem] border border-ink/8 bg-mist p-7"><CheckCircle2 className="text-ocean"/><h2 className="mt-5 text-xl font-semibold">{item}</h2></article>)}</div></section>
-  <section className="section bg-mist"><div className="container-shell text-center"><h2 className="heading mx-auto">HKO Trade Hub</h2><p className="lead mx-auto">Turkey ⇄ Chile · Sourcing · Market Intelligence · Trade Facilitation · Logistics Coordination</p><Link href={`/${locale}/contact`} className="btn-secondary mt-8 inline-flex">Contact</Link></div></section>
+  <section className="section bg-mist"><div className="container-shell text-center"><h2 className="heading mx-auto">HKO Trade Hub</h2><p className="lead mx-auto">Turkey ⇄ Chile · Sourcing · Market Intelligence · Trade Facilitation · Logistics Coordination</p><Link href={`/${locale}/contact`} className="btn-secondary mt-8 inline-flex">{contactLabel}</Link></div></section>
  </>;
 }
