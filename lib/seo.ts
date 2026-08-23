@@ -85,8 +85,9 @@ export function getLocalizedMetadata(locale: Locale, pathname: string): Metadata
       siteName: "HKO Trade Hub",
       type: "website",
       locale: locale === "tr" ? "tr_TR" : locale === "es" ? "es_CL" : "en_US",
+      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: `${title} | HKO Trade Hub` }],
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: [`${SITE_URL}/opengraph-image`] },
   };
 }
 
