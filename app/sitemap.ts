@@ -6,6 +6,7 @@ const locales = ["tr", "en", "es"] as const;
 const pages = ["", "about", "services", "products", "suppliers", "buyers", "blog", "contact", "quote"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date("2026-08-22T00:00:00.000Z");
   const paths = [
     ...pages,
     ...products.map((product) => `products/${product.slug}`),
@@ -14,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
     paths.map((page) => ({
       url: SITE_URL + "/" + locale + (page ? "/" + page : ""),
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: page === "" ? "weekly" as const : "monthly" as const,
       priority: page === "" ? 1 : page.includes("/") ? 0.6 : 0.7,
     })),
