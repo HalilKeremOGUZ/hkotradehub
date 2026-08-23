@@ -22,7 +22,7 @@ export async function middleware(req: NextRequest) {
 
   const hasLocale = locales.some((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
 
-  if (!hasLocale && !pathname.startsWith("/api") && !pathname.startsWith("/_next") && !pathname.includes(".")) {
+  if (!hasLocale && !pathname.startsWith("/api") && !pathname.startsWith("/_next") && pathname !== "/opengraph-image" && !pathname.includes(".")) {
     const savedLocale = req.cookies.get("hko_language")?.value;
     const locale = savedLocale && locales.includes(savedLocale) ? savedLocale : "tr";
     return NextResponse.redirect(new URL(`/${locale}${pathname}`, req.url));
@@ -47,3 +47,4 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = { matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"] };
+
