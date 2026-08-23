@@ -75,9 +75,11 @@ export function LanguageWelcome() {
 
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.2em] text-aqua backdrop-blur"><Globe2 className="h-4 w-4" aria-hidden="true" /> Global B2B Trade · Küresel B2B Ticaret · Comercio B2B Global</div>
-            <h1 id="language-welcome-title" className="text-3xl font-semibold tracking-tight sm:text-5xl">HKO Trade Hub’a Hoş Geldiniz</h1>
-            <p className="mt-2 text-lg font-medium text-white/85 sm:text-xl">Welcome to HKO Trade Hub</p>
-            <p className="mt-1 text-lg font-medium text-white/85 sm:text-xl">Bienvenido a HKO Trade Hub</p>
+            <h1 id="language-welcome-title" className="space-y-1 text-2xl font-semibold leading-tight tracking-tight sm:text-4xl">
+              <span className="block">HKO Trade Hub’a Hoş Geldiniz</span>
+              <span className="block">Welcome to HKO Trade Hub</span>
+              <span className="block">Bienvenido a HKO Trade Hub</span>
+            </h1>
             <div className="mx-auto mt-5 max-w-xl space-y-1 text-sm leading-6 text-white/60 sm:text-base"><p>{copy.tr.text}</p><p>{copy.en.text}</p><p>{copy.es.text}</p></div>
           </div>
 
