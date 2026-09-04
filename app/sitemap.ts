@@ -10,8 +10,21 @@ const tradePages: Record<(typeof locales)[number], string[]> = {
   en: ["turkey-chile-trade"],
 };
 
+function languageAlternates(page: string) {
+  const commonPage = !page.startsWith("trade/");
+  if (!commonPage) return undefined;
+  return {
+    languages: {
+      tr: `${SITE_URL}/tr${page ? `/${page}` : ""}`,
+      en: `${SITE_URL}/en${page ? `/${page}` : ""}`,
+      es: `${SITE_URL}/es${page ? `/${page}` : ""}`,
+      "x-default": `${SITE_URL}/en${page ? `/${page}` : ""}`,
+    },
+  };
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-08-23T00:00:00.000Z");
+  const lastModified = new Date("2026-09-04T00:00:00.000Z");
   return locales.flatMap((locale) => {
     const paths = [
       ...pages,
@@ -20,10 +33,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...tradePages[locale].map((slug) => `trade/${slug}`),
     ];
     return paths.map((page) => ({
-      url: SITE_URL + "/" + locale + (page ? "/" + page : ""),
+      url: `${SITE_URL}/${locale}${page ? `/${page}` : ""}`,
       lastModified,
-      changeFrequency: page === "" ? "weekly" as const : "monthly" as const,
-      priority: page === "" ? 1 : page.startsWith("trade/") ? 0.85 : page.includes("/") ? 0.6 : 0.7,
+      changeFrequency: page === "" ? "weekly" as const : page.startsWith("blog/") ? "monthly" as const : "monthly" as const,
+      priority: page === "" ? 1 : page.startsWith("trade/") ? 0.9 : page === "products" || page === "services" ? 0.85 : page.includes("/") ? 0.7 : 0.75,
+      alternates: languageAlternates(page),
     }));
   });
 }
