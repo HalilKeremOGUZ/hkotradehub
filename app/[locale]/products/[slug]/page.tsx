@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,7 +13,36 @@ const copy={
 } as const;
 const categories={tr:{Food:"Gıda",Agriculture:"Tarım",Machinery:"Makine",Seafood:"Deniz Ürünleri",Construction:"Yapı",Beverage:"İçecek",Automotive:"Otomotiv",Truck:"Kamyon",HeavyEquipment:"İş Makineleri"},en:{Food:"Food",Agriculture:"Agriculture",Machinery:"Machinery",Seafood:"Seafood",Construction:"Construction",Beverage:"Beverage",Automotive:"Automotive",Truck:"Truck",HeavyEquipment:"Heavy Equipment"},es:{Food:"Alimentos",Agriculture:"Agricultura",Machinery:"Maquinaria",Seafood:"Productos del mar",Construction:"Construcción",Beverage:"Bebidas",Automotive:"Automoción",Truck:"Camiones",HeavyEquipment:"Maquinaria Pesada"}} as const;
 
-export default async function Page({params}:{params:Promise<{locale:string,slug:string}>}) {
+type Params={params:Promise<{locale:string,slug:string}>};
+
+export async function generateMetadata({params}:Params):Promise<Metadata> {
+  const {locale,slug}=await params;
+  if(!isLocale(locale)) return {};
+  const product=products.find(x=>x.slug===slug);
+  if(!product) return {};
+  const name=product.names[locale];
+  const description=product.desc[locale];
+  const canonical=`${SITE_URL}/${locale}/products/${slug}`;
+  const title=`${name} | HKO Trade Hub`;
+  return {
+    title,
+    description,
+    alternates:{
+      canonical,
+      languages:{
+        "tr-TR":`${SITE_URL}/tr/products/${slug}`,
+        "en":`${SITE_URL}/en/products/${slug}`,
+        "es-CL":`${SITE_URL}/es/products/${slug}`,
+        "x-default":`${SITE_URL}/en/products/${slug}`
+      }
+    },
+    openGraph:{title,description,url:canonical,siteName:"HKO Trade Hub",type:"website",locale:locale==="tr"?"tr_TR":locale==="es"?"es_CL":"en_US",images:[{url:`${SITE_URL}${product.image}`,alt:name}]},
+    twitter:{card:"summary_large_image",title,description,images:[`${SITE_URL}${product.image}`]},
+    robots:{index:true,follow:true}
+  };
+}
+
+export default async function Page({params}:Params) {
   const {locale,slug}=await params;
   if(!isLocale(locale)) notFound();
   const product=products.find(x=>x.slug===slug);
