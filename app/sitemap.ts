@@ -11,20 +11,20 @@ const tradePages: Record<(typeof locales)[number], string[]> = {
 };
 
 function languageAlternates(page: string) {
-  const commonPage = !page.startsWith("trade/");
-  if (!commonPage) return undefined;
+  if (page.startsWith("trade/")) return undefined;
+  const suffix = page ? `/${page}` : "";
   return {
     languages: {
-      tr: `${SITE_URL}/tr${page ? `/${page}` : ""}`,
-      en: `${SITE_URL}/en${page ? `/${page}` : ""}`,
-      es: `${SITE_URL}/es${page ? `/${page}` : ""}`,
-      "x-default": `${SITE_URL}/en${page ? `/${page}` : ""}`,
+      "tr-TR": `${SITE_URL}/tr${suffix}`,
+      en: `${SITE_URL}/en${suffix}`,
+      "es-CL": `${SITE_URL}/es${suffix}`,
+      "x-default": `${SITE_URL}/en${suffix}`,
     },
   };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-09-08T00:00:00.000Z");
+  const lastModified = new Date("2026-09-11T00:00:00.000Z");
   return locales.flatMap((locale) => {
     const paths = [
       ...pages,
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/${locale}${page ? `/${page}` : ""}`,
       lastModified,
       changeFrequency: page === "" || page === "products" ? "weekly" as const : "monthly" as const,
-      priority: page === "" ? 1 : page === "products" ? 0.95 : page.startsWith("trade/") ? 0.9 : page.startsWith("products/") ? 0.85 : page === "services" || page === "suppliers" || page === "buyers" ? 0.85 : page.includes("/") ? 0.7 : 0.75,
+      priority: page === "" ? 1 : page === "products" ? 0.95 : page.startsWith("trade/") ? 0.9 : page.startsWith("products/") ? 0.88 : page === "about" || page === "services" || page === "suppliers" || page === "buyers" ? 0.85 : page.includes("/") ? 0.7 : 0.75,
       alternates: languageAlternates(page),
     }));
   });

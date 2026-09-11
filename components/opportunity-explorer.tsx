@@ -12,7 +12,7 @@ type Market = "all" | "turkiye" | "chile";
 const copy = {
   tr: {
     all: "Tüm fırsatlar", turkiye: "Türkiye çıkışlı", chile: "Şili çıkışlı",
-    count: "aktif fırsat", sectors: "öncelikli sektör", markets: "bağlantılı pazar",
+    count: "listelenen fırsat", sectors: "listelenen sektör", markets: "kaynak pazar",
     verified: "Ön değerlendirmeden geçmiş", current: "Güncel ticaret odağı", scalable: "Ölçeklenebilir talepler",
     result: "Seçiminize uygun fırsatlar", viewAll: "Tüm ürünleri görüntüle",
     customTitle: "Aradığınız fırsatı göremediniz mi?", customText: "Ürün, hedef pazar ve miktar ihtiyacınızı paylaşın; ekibimiz size özel tedarik veya alıcı araştırması başlatsın.",
@@ -20,7 +20,7 @@ const copy = {
   },
   en: {
     all: "All opportunities", turkiye: "From Turkey", chile: "From Chile",
-    count: "active opportunities", sectors: "priority sectors", markets: "connected markets",
+    count: "listed opportunities", sectors: "listed sectors", markets: "source markets",
     verified: "Pre-screened", current: "Current trade focus", scalable: "Scalable requirements",
     result: "Opportunities matching your selection", viewAll: "View all products",
     customTitle: "Can’t find the opportunity you need?", customText: "Share your product, target market and volume. Our team will begin a tailored supplier or buyer search.",
@@ -28,7 +28,7 @@ const copy = {
   },
   es: {
     all: "Todas las oportunidades", turkiye: "Desde Turquía", chile: "Desde Chile",
-    count: "oportunidades activas", sectors: "sectores prioritarios", markets: "mercados conectados",
+    count: "oportunidades listadas", sectors: "sectores listados", markets: "mercados de origen",
     verified: "Preseleccionadas", current: "Enfoque comercial actual", scalable: "Necesidades escalables",
     result: "Oportunidades según su selección", viewAll: "Ver todos los productos",
     customTitle: "¿No encuentra la oportunidad que busca?", customText: "Comparta su producto, mercado objetivo y volumen. Nuestro equipo iniciará una búsqueda personalizada de proveedores o compradores.",
@@ -44,6 +44,8 @@ export function OpportunityExplorer({ locale }: { locale: Locale }) {
     if (market === "chile") return product.origin === "Chile";
     return product.origin !== "Chile";
   }), [market]);
+  const sectorCount = new Set(filtered.map((product) => product.category)).size;
+  const marketCount = new Set(filtered.map((product) => product.origin)).size;
 
   const filters: Array<{ id: Market; label: string }> = [
     { id: "all", label: t.all }, { id: "turkiye", label: t.turkiye }, { id: "chile", label: t.chile }
@@ -65,8 +67,8 @@ export function OpportunityExplorer({ locale }: { locale: Locale }) {
         </div>
         <div className="relative grid grid-cols-3 gap-3 lg:min-w-[360px]">
           <Metric value={String(filtered.length).padStart(2, "0")} label={t.count} />
-          <Metric value="06" label={t.sectors} />
-          <Metric value="12+" label={t.markets} />
+          <Metric value={String(sectorCount).padStart(2, "0")} label={t.sectors} />
+          <Metric value={String(marketCount).padStart(2, "0")} label={t.markets} />
         </div>
       </div>
     </div>
