@@ -24,7 +24,6 @@ function languageAlternates(page: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-09-11T00:00:00.000Z");
   return locales.flatMap((locale) => {
     const paths = [
       ...pages,
@@ -34,7 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
     return paths.map((page) => ({
       url: `${SITE_URL}/${locale}${page ? `/${page}` : ""}`,
-      lastModified,
       changeFrequency: page === "" || page === "products" ? "weekly" as const : "monthly" as const,
       priority: page === "" ? 1 : page === "products" ? 0.95 : page.startsWith("trade/") ? 0.9 : page.startsWith("products/") ? 0.88 : page === "about" || page === "services" || page === "suppliers" || page === "buyers" ? 0.85 : page.includes("/") ? 0.7 : 0.75,
       alternates: languageAlternates(page),
