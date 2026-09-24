@@ -24,6 +24,12 @@ const pages = {
 
 type LocaleKey = keyof typeof pages;
 
+export function generateStaticParams() {
+  return (Object.keys(pages) as LocaleKey[]).flatMap((locale) =>
+    Object.keys(pages[locale]).map((slug) => ({ locale, slug }))
+  );
+}
+
 export async function generateMetadata({params}:{params:Promise<{locale:string;slug:string}>}):Promise<Metadata>{
  const {locale,slug}=await params;if(!isLocale(locale))return {};
  const page=(pages[locale as LocaleKey] as Record<string,any>)[slug];if(!page)return {};
