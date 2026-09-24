@@ -28,6 +28,12 @@ const commercialContext:Record<string,{tr:string,en:string,es:string}>={
 
 type Params={params:Promise<{locale:string,slug:string}>};
 
+export function generateStaticParams() {
+  return (["tr", "en", "es"] as const).flatMap((locale) =>
+    products.map((product) => ({ locale, slug: product.slug }))
+  );
+}
+
 const resolveImageUrl=(image:string)=>image.startsWith("http://")||image.startsWith("https://")?image:`${SITE_URL}${image}`;
 
 export async function generateMetadata({params}:Params):Promise<Metadata> {
