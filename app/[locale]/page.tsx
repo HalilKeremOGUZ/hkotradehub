@@ -69,6 +69,15 @@ export default async function Home({params}:{params:Promise<{locale:string}>}){
    </div>
   </section>
 
+  <section className="border-y border-ink/8 bg-white py-8">
+    <div className="container-shell">
+      <div className="rounded-[1.6rem] border border-ocean/12 bg-mist px-6 py-6 sm:px-8">
+        <p className="text-xs font-bold uppercase tracking-[.18em] text-ocean">HKO Trade Hub · hkotradehub.com</p>
+        <p className="mt-3 max-w-4xl text-sm leading-7 text-ink/62">{locale === "tr" ? "HKO Trade Hub, hkotradehub.com alan adında faaliyet gösteren Türkiye–Şili odaklı B2B tedarik ve uluslararası ticaret platformudur. Resmi web sitemiz www.hkotradehub.com'dur." : locale === "es" ? "HKO Trade Hub es la plataforma B2B de abastecimiento y comercio internacional enfocada en Turquía–Chile que opera en hkotradehub.com. Nuestro sitio web oficial es www.hkotradehub.com." : "HKO Trade Hub is the Turkey–Chile focused B2B sourcing and international trade platform operating at hkotradehub.com. Our official website is www.hkotradehub.com."}</p>
+      </div>
+    </div>
+  </section>
+
   <section className="section bg-white"><div className="container-shell grid items-center gap-12 lg:grid-cols-[.75fr_1.25fr]"><Reveal><p className="eyebrow">{d.home.routeEyebrow}</p><h2 className="heading">{d.home.routeTitle}</h2><p className="lead">{d.home.routeText}</p><div className="mt-8 space-y-3 text-sm text-ink/58">{x.route.map(item=><p className="flex items-center gap-3" key={item}><CheckCircle2 className="text-aqua" size={19}/>{item}</p>)}</div></Reveal><Reveal><TradeRoute locale={locale}/></Reveal></div></section>
 
   <section className="section bg-mist"><div className="container-shell grid gap-14 lg:grid-cols-[.78fr_1.22fr]"><Reveal><p className="eyebrow">{d.home.servicesEyebrow}</p><h2 className="heading">{d.home.servicesTitle}</h2><p className="lead">{d.home.servicesText}</p><Link href={`/${locale}/services`} className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ocean">{d.common.learn}<ArrowRight size={17}/></Link></Reveal><div className="grid gap-4 sm:grid-cols-2">{services.map(([title,text],i)=>{const Icon=serviceIcons[i];return <Reveal key={title}><article className="h-full rounded-[1.6rem] border border-ink/8 bg-white p-7 shadow-[0_18px_50px_rgba(8,20,39,.04)]"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink text-aqua"><Icon size={22}/></span><h3 className="mt-6 text-lg font-semibold">{title}</h3><p className="mt-3 text-sm leading-7 text-ink/56">{text}</p></article></Reveal>})}</div></div></section>
